@@ -4,6 +4,7 @@
 .DS_Store
 *.log
 *.env
+!*.env.sample
 *.env.local
 *.env.development
 *.env.production
