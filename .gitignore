@@ -22,6 +22,7 @@ out/
 build/
 
 # IDE/Editor
+*.code-workspace
 .vscode/
 .idea/
 *.suo
