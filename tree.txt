@@ -1,0 +1,22 @@
+.
+├── CHANGELOG.md
+├── README.md
+├── docker-compose.yml
+├── nextjs-app
+│   └── next-env.d.ts
+├── nodejs-api
+│   ├── Dockerfile
+│   ├── package-lock.json
+│   ├── package.json
+│   └── src
+│       ├── config
+│       ├── controllers
+│       │   └── chat.js
+│       ├── index.js
+│       ├── routes
+│       │   └── api.js
+│       └── services
+│           └── ai-service.js
+└── tree.txt
+
+8 directories, 12 files
