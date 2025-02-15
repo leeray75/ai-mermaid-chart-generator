@@ -1,6 +1,3 @@
-Here’s a comprehensive `README.md` file for your **AI-Powered Mermaid Chart Generator** project. It provides an overview of the project, setup instructions, and usage details:
-
-```markdown
 # AI-Powered Mermaid Chart Generator
 
 ![Mermaid Chart Example](https://mermaid-js.github.io/mermaid/img/header.png)
