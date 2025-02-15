@@ -43,7 +43,7 @@ project-root/
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v18 or higher)
+- [Node.js](https://nodejs.org/) (v22 or higher)
 - [Docker](https://www.docker.com/) (v20 or higher)
 - [Docker Compose](https://docs.docker.com/compose/) (v2 or higher)
 - [OpenAI API Key](https://platform.openai.com/signup) (for AI integration)
@@ -186,19 +186,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 For questions or feedback, please reach out to [Raymond Lee](mailto:raymond.lee.dev.1704@gmail.com).
 ```
-
----
-
-### Key Sections:
-1. **Project Overview**: Briefly describes the project and its purpose.
-2. **Features**: Highlights the key functionalities.
-3. **Tech Stack**: Lists the technologies used.
-4. **Setup Instructions**: Provides step-by-step guidance for setting up the project locally.
-5. **Usage**: Explains how to use the application.
-6. **API Endpoints**: Documents the backend API.
-7. **Future Enhancements**: Lists potential improvements.
-8. **Contributing**: Encourages contributions and provides guidelines.
-9. **License**: Specifies the project's license.
-10. **Acknowledgments**: Credits third-party tools and libraries.
-11. **Contact**: Provides contact information for questions or feedback.
 
