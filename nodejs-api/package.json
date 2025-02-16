@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
+    "start": "./scripts/start.sh",
+    "dev": "nodemon --watch src --exec ./scripts/start.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,5 +16,8 @@
     "express": "^4.21.2",
     "mongoose": "^8.10.1",
     "openai": "^4.85.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
   }
 }
