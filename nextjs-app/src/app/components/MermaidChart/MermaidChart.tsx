@@ -17,12 +17,17 @@ const MermaidChart = ({ chartCode }: MermaidChartProps) => {
 
         // Render the Mermaid chart and obtain SVG code
         const { svg } = await mermaid.render("mermaid-chart", chartCode);
-        console.log("[MermaidChart] svg:", svg);
 
-        // Add max-width style to the SVG element
+        // Modify the existing style attribute to update max-width and height
         const svgWithStyle = svg.replace(
-          "<svg ",
-          `<svg style="max-width: 100%; height: auto;" `
+          /<svg([^>]*)style="([^"]*)"/,
+          (match, p1, p2) => {
+            // Update or add max-width and height in the style attribute
+            const updatedStyle = p2
+              .replace(/max-width:\s*[^;]+;?/, "max-width: 100%;") // Update max-width
+              .replace(/height:\s*[^;]+;?/, "height: auto;"); // Update height
+            return `<svg${p1}style="${updatedStyle}"`;
+          }
         );
 
         // Update the state with the modified SVG
@@ -41,7 +46,6 @@ const MermaidChart = ({ chartCode }: MermaidChartProps) => {
   // Render the SVG using dangerouslySetInnerHTML
   return (
     <div
-      id="MermaidChart"
       data-component="MermaidChart"
       dangerouslySetInnerHTML={{ __html: svgContent }} // Render the SVG
     />
