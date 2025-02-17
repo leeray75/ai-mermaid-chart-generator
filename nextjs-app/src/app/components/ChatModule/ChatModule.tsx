@@ -1,3 +1,4 @@
+"use client";
 // components/ChatModule.tsx
 import React from "react";
 import { TextField, Button, Card, CardContent } from "@mui/material";

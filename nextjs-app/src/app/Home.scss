@@ -1,5 +1,3 @@
-/* src/pages/Home.scss */
-
 .home-container {
     display: flex;
     flex-direction: column;
@@ -15,5 +13,24 @@
     margin-bottom: 20px;
     font-family: 'Arial', sans-serif;
     text-align: center;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px; /* Optional, limits the width */
+    gap: 20px; /* Optional, adds space between the components */
+  }
+  
+  .chat-container {
+    flex: 1;
+    max-width: 50%; /* Optional, limits the width */
+  }
+  
+  .mermaid-chart {
+    flex: 1;
+    max-width: 50%; /* Optional, limits the width */
   }
   
