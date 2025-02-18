@@ -8,4 +8,7 @@ router.get('/health', chatController.healthCheck);
 // Existing route
 router.post('/generate', chatController.generateMermaidCode);
 
+// Retrieve chat history
+router.get('/chats', chatController.getChatHistory);
+
 module.exports = router;
