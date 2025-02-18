@@ -1,7 +1,14 @@
+"use client";
 // components/ChatModule.tsx
 import React from "react";
-import { TextField, Button, Card, CardContent } from "@mui/material";
+import dynamic from "next/dynamic";
 import styles from "./ChatModule.module.scss";
+
+// Dynamically import Material-UI components
+const TextField = dynamic(() => import("@mui/material/TextField"));
+const Button = dynamic(() => import("@mui/material/Button"));
+const Card = dynamic(() => import("@mui/material/Card"));
+const CardContent = dynamic(() => import("@mui/material/CardContent"));
 
 interface ChatModuleProps {
   messages: string[];
