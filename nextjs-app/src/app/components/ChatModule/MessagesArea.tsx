@@ -1,4 +1,3 @@
-// src/app/components/ChatModule/MessageArea.tsx
 "use client";
 import React, { useState, useRef } from "react";
 import dynamic from "next/dynamic";
@@ -7,13 +6,42 @@ import { useGetChatHistoryQuery, ChatHistoryItem } from "@/app/lib/api.slice";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { useDispatch } from "react-redux";
+import { setMermaidCode } from "@/app/redux/slices/mermaid-chart.slice";
+import Button from "@mui/material/Button"; // Import Material UI Button
+import ContentCopyIcon from "@mui/icons-material/ContentCopy"; // Import Copy Icon
+import CodeIcon from "@mui/icons-material/Code"; // Import Code Icon
+import Tooltip from "@mui/material/Tooltip"; // Import Tooltip for better UX
 
+// Dynamically import Material-UI components
 const CardContent = dynamic(() => import("@mui/material/CardContent"));
+
+// SetMermaidCodeButton Component
+const SetMermaidCodeButton = ({ mermaidCode }: { mermaidCode: string }) => {
+  const dispatch = useDispatch();
+
+  const handleSetMermaidCode = () => {
+    dispatch(setMermaidCode(mermaidCode));
+  };
+
+  return (
+    <Tooltip title="Set Mermaid Code" arrow>
+      <Button
+        variant="outlined"
+        startIcon={<CodeIcon />}
+        onClick={handleSetMermaidCode}
+        sx={{ marginLeft: 1 }}
+      >
+        Set Code
+      </Button>
+    </Tooltip>
+  );
+};
 
 // CopyButton Component
 const CopyButton = ({ textToCopy }: { textToCopy: string }) => {
   const [buttonText, setButtonText] = useState("Copy");
-  const buttonRef = useRef<HTMLButtonElement>(null); // Correct type for the ref
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const handleCopy = async () => {
     try {
@@ -28,15 +56,22 @@ const CopyButton = ({ textToCopy }: { textToCopy: string }) => {
       console.error("Failed to copy: ", err);
       setButtonText("Error");
       setTimeout(() => {
-        setButtonText("Copy"); // Reset even on error
+        setButtonText("Copy");
       }, 2000);
     }
   };
 
   return (
-    <button className="copy-button" onClick={handleCopy} ref={buttonRef}>
-      {buttonText}
-    </button>
+    <Tooltip title="Copy to Clipboard" arrow>
+      <Button
+        variant="outlined"
+        startIcon={<ContentCopyIcon />}
+        onClick={handleCopy}
+        ref={buttonRef}
+      >
+        {buttonText}
+      </Button>
+    </Tooltip>
   );
 };
 
@@ -48,9 +83,7 @@ const MessagesArea = () => {
   }
 
   if (isError) {
-    return (
-      <div className={styles.messageArea}>Error loading chat history.</div>
-    );
+    return <div className={styles.messageArea}>Error loading chat history.</div>;
   }
 
   const components = {
@@ -61,14 +94,17 @@ const MessagesArea = () => {
       return !inline && match ? (
         <div className="code-block-wrapper">
           <SyntaxHighlighter
-            children={codeString}
             style={atomDark}
             language={match[1]}
             PreTag="div"
             {...props}
           >
+            {codeString}
           </SyntaxHighlighter>
-          <CopyButton textToCopy={codeString} />
+          <div style={{ display: "flex", marginTop: 8 }}>
+            <CopyButton textToCopy={codeString} />
+            <SetMermaidCodeButton mermaidCode={codeString} />
+          </div>
         </div>
       ) : (
         <code className={className} {...props}>
@@ -88,7 +124,7 @@ const MessagesArea = () => {
           <p>
             <strong>Mermaid Code:</strong>
           </p>
-          <ReactMarkdown children={msg.mermaidCode} components={components} />
+          <ReactMarkdown components={components}>{msg.mermaidCode}</ReactMarkdown>
         </div>
       ))}
     </CardContent>
