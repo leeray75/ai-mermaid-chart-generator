@@ -33,7 +33,7 @@ const generateMermaidCode = async (userInput) => {
   const response = await openai.chat.completions.create({
     model: 'gpt-4', // Use GPT-4 model
     messages: [
-      { role: 'system', content: 'You are a helpful assistant that generates Mermaid code.' },
+      { role: 'system', content: 'You are a helpful assistant that generates Mermaid code.  Ensure the generated Mermaid code is well-formatted, with consistent indentation and spacing, making it easy to read and understand.' },
       { role: 'user', content: `Generate Mermaid code for: ${userInput}` },
     ],
   });
