@@ -6,17 +6,16 @@ export interface GenerateMermaidResponse {
 }
 
 export interface ChatHistoryItem {
-  _id: string; // Add _id (and other missing fields)
+  _id: string;
   userInput: string;
   mermaidCode: string;
-  timestamp: string; // Add timestamp (and other missing fields)
+  timestamp: string;
   createdAt: string;
   updatedAt: string;
   __v: number;
 }
 
 interface ChatHistoryResponse {
-  // Define a response interface
   status: string;
   data: ChatHistoryItem[];
 }
@@ -32,6 +31,7 @@ const baseUrl =
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({ baseUrl }),
+  tagTypes: ["ChatHistory"], // Define a tag for chat history
   endpoints: (builder) => ({
     generateMermaid: builder.mutation<
       GenerateMermaidResponse,
@@ -42,10 +42,11 @@ export const apiSlice = createApi({
         method: "POST",
         body: userInput,
       }),
+      invalidatesTags: ["ChatHistory"], // Invalidate the "ChatHistory" tag after a successful mutation
     }),
     getChatHistory: builder.query<ChatHistoryResponse, void>({
-      // Use the new interface
       query: () => "/history",
+      providesTags: ["ChatHistory"], // Provide the "ChatHistory" tag for this query
     }),
     checkHealth: builder.query<HealthCheckResponse, void>({
       query: () => "/health",
