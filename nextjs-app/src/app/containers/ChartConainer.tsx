@@ -3,16 +3,16 @@
 import React, { useState } from "react";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
-import ChatModule from "../components/ChatModule";
+import MermaidChart from "../components/MermaidChart";
 
-const ChatContainer = () => {
+const ChartContainer = () => {
 
 
   return (
     <Provider store={store}>
-      <ChatModule />
+      <MermaidChart />
     </Provider>
   );
 };
 
-export default ChatContainer;
+export default ChartContainer;
