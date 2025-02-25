@@ -1,4 +1,4 @@
-// src/redux/slices/mermaidChartSlice.ts
+// src/redux/slices/mermaid-chart.slice.ts
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 // Define the shape of the Mermaid Chart state
