@@ -4,14 +4,18 @@ import React, { useState } from "react";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
 import ChatModule from "../components/ChatModule";
-
+import CodeEditor from "../components/CodeEditor";
+import styles from "./Containers.module.scss";
 const ChatContainer = () => {
-
-
   return (
-    <Provider store={store}>
-      <ChatModule />
-    </Provider>
+    <>
+      <Provider store={store}>
+        <section className={styles["chat-container"]}>
+          <CodeEditor />
+          <ChatModule />
+        </section>
+      </Provider>
+    </>
   );
 };
 
