@@ -21,6 +21,7 @@ const setupMermaid = (monaco: Monaco) => {
     rules: [
       { token: "keyword", foreground: "FFA500" },
       { token: "comment", foreground: "808080" },
+      { token: "identifier", foreground: "00CC00"},
     ],
     colors: {}, // Required to avoid TypeScript errors
   });
