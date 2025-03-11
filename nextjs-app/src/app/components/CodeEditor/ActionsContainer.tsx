@@ -6,10 +6,6 @@ import { clearCode } from "@/app/redux/slices/code-editor.slice"; // Import clea
 import { setMermaidCode } from "@/app/redux/slices/mermaid-chart.slice";
 import { RootState } from "@/app/redux/store"; // Import the RootState type
 
-interface ActionsContainerProps {
-  editorCode: string;
-  setEditorCode: React.Dispatch<React.SetStateAction<string>>;
-}
 
 const ActionsContainer = () => {
   const dispatch = useDispatch();

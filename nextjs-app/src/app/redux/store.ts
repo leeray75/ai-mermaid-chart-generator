@@ -1,6 +1,6 @@
 // src/redux/store.ts
-import { configureStore } from '@reduxjs/toolkit';
-import { apiSlice } from '../lib/api.slice';
+import { configureStore } from "@reduxjs/toolkit";
+import { apiSlice } from "../lib/api.slice";
 import mermaidChartReducer from "./slices/mermaid-chart.slice"; // Import the slice
 import codeEditorReducer from "@/app/redux/slices/code-editor.slice"; // import your codeEditor reducer
 
@@ -14,7 +14,9 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(apiSlice.middleware),
 });
-window.store = store;
+if (typeof window !== 'undefined') {
+  window.store = store;
+}
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
