@@ -2,8 +2,8 @@
 
 import React from "react";
 import { Provider } from "react-redux";
-import { store } from "../redux/store";
-import MermaidChart from "../components/MermaidChart";
+import { store } from "@/redux/store";
+import MermaidChart from "@/components/MermaidChart";
 import styles from "./Containers.module.scss";
 const ChartContainer = () => {
   return (

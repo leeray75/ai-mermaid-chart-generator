@@ -2,9 +2,9 @@
 import React from "react";
 import { Button, Box } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { clearCode } from "@/app/redux/slices/code-editor.slice"; // Import clearCode from code-editor.slice
-import { setMermaidCode } from "@/app/redux/slices/mermaid-chart.slice";
-import { RootState } from "@/app/redux/store"; // Import the RootState type
+import { clearCode } from "@/redux/slices/code-editor.slice"; // Import clearCode from code-editor.slice
+import { setMermaidCode } from "@/redux/slices/mermaid-chart.slice";
+import { RootState } from "@/redux/store"; // Import the RootState type
 
 
 const ActionsContainer = () => {

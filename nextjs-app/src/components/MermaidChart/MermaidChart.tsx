@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import mermaid from "mermaid";
 import { useSelector } from "react-redux";
-import { RootState } from "@/app/redux/store"; // Adjust path as needed
+import { RootState } from "@/redux/store"; // Adjust path as needed
 import "./MermaidChart.scss";
 
 const MermaidChart = () => {

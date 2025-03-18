@@ -1,8 +1,8 @@
 // src/app/components/CodeEditor/use-editor-logic.ts
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/app/redux/store"; // Correctly import RootState
-import { setCode } from "@/app/redux/slices/code-editor.slice";
+import { RootState } from "@/redux/store"; // Correctly import RootState
+import { setCode } from "@/redux/slices/code-editor.slice";
 
 const useEditorLogic = () => {
   const dispatch = useDispatch();

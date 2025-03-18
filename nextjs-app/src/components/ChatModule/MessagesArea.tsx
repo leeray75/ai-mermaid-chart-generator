@@ -2,12 +2,12 @@
 import React, { useState, useRef } from "react";
 import dynamic from "next/dynamic";
 import styles from "./ChatModule.module.scss";
-import { useGetChatHistoryQuery, ChatHistoryItem } from "@/app/lib/api.slice";
+import { useGetChatHistoryQuery, ChatHistoryItem } from "@/lib/api.slice";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { useDispatch } from "react-redux";
-import { setMermaidCode } from "@/app/redux/slices/mermaid-chart.slice";
+import { setMermaidCode } from "@/redux/slices/mermaid-chart.slice";
 import Button from "@mui/material/Button"; // Import Material UI Button
 import ContentCopyIcon from "@mui/icons-material/ContentCopy"; // Import Copy Icon
 import CodeIcon from "@mui/icons-material/Code"; // Import Code Icon

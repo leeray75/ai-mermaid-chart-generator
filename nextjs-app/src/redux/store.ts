@@ -2,7 +2,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { apiSlice } from "../lib/api.slice";
 import mermaidChartReducer from "./slices/mermaid-chart.slice"; // Import the slice
-import codeEditorReducer from "@/app/redux/slices/code-editor.slice"; // import your codeEditor reducer
+import codeEditorReducer from "@/redux/slices/code-editor.slice"; // import your codeEditor reducer
 
 // Create the Redux store
 export const store = configureStore({

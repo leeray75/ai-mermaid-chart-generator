@@ -2,9 +2,9 @@
 
 import React from "react";
 import { Provider } from "react-redux";
-import { store } from "../redux/store";
-import ChatModule from "../components/ChatModule";
-import CodeEditor from "../components/CodeEditor";
+import { store } from "@/redux/store";
+import ChatModule from "@/components/ChatModule";
+import CodeEditor from "@/components/CodeEditor";
 import styles from "./Containers.module.scss";
 const ChatContainer = () => {
   return (

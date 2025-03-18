@@ -2,7 +2,7 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import styles from "./ChatModule.module.scss";
-import { useGenerateMermaidMutation } from "@/app/lib/api.slice";
+import { useGenerateMermaidMutation } from "@/lib/api.slice";
 
 // Dynamically import Material-UI components
 const TextField = dynamic(() => import("@mui/material/TextField"));
